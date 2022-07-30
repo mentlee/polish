@@ -7,7 +7,9 @@ from .graphql.extensions import SessionExtension
 
 app = FastAPI()
 
-schema = strawberry.Schema(query=Query, mutation=Mutation, extensions=[SessionExtension])
+schema = strawberry.Schema(
+    query=Query, mutation=Mutation, extensions=[SessionExtension]
+)
 graphql_router = GraphQLRouter(schema)
 
 app.include_router(graphql_router, prefix="/graphql")
