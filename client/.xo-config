@@ -2,6 +2,7 @@
   "space": true,
   "semicolon": false,
   "prettier": true,
+  "ignore": ["**/*.cjs"],
   "rules": {
     "arrow-body-style": "off",
     "import/extensions": "off",
