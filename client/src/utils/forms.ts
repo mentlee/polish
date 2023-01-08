@@ -1,13 +1,6 @@
 import { type Config } from './ending'
 
-export interface WordForms extends Record<number, string> {
-  1: string
-  2: string
-  3: string
-  4: string
-  5: string
-  6: string
-}
+export type WordForms = Record<number, string>
 
 type Formatter = (config: Config) => WordForms
 
