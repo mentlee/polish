@@ -3,3 +3,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.ant-descriptions.ant-descriptions-bordered .ant-descriptions-view > table {
+  table-layout: fixed;
+}
