@@ -1,4 +1,7 @@
 {
+  "declension": "Declension",
+  "basicInfo": "Basic info",
+  "generate": "Generate",
   "cases": {
     "nom": {
       "short": "Nom",

@@ -1,4 +1,7 @@
 {
+  "declension": "Odmiana",
+  "basicInfo": "Podstawowa informacja",
+  "generate": "Generuj",
   "cases": {
     "nom": {
       "short": "M",

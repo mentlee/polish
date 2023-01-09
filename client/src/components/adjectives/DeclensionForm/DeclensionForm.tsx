@@ -1,10 +1,12 @@
 import { Button, Descriptions, Input } from 'antd'
 import { useMemo, useState } from 'react'
+import { useTranslation } from 'react-i18next'
 import { getConfig } from '../../../utils/ending'
 import { getForms, type WordForms } from '../../../utils/forms'
 import { DeclensionTable } from '../DeclensionTable/DeclensionTable'
 
 export const DeclensionForm: React.FC = () => {
+  const { t } = useTranslation()
   const [lemma, setLemma] = useState<string>('')
   const [forms, setForms] = useState<WordForms | null>(null)
   const config = useMemo(() => getConfig(lemma), [lemma])
@@ -17,7 +19,7 @@ export const DeclensionForm: React.FC = () => {
       size="small"
       column={{ xxl: 1, xl: 1, lg: 1, md: 1, sm: 1, xs: 1 }}
     >
-      <Descriptions.Item label="Base info">
+      <Descriptions.Item label={t('basicInfo')}>
         <form
           onSubmit={(event) => {
             event.preventDefault()
@@ -33,13 +35,13 @@ export const DeclensionForm: React.FC = () => {
               onChange={({ target }) => setLemma(target.value)}
             />
             <Button disabled={!config} htmlType="submit">
-              Generate
+              {t('generate')}
             </Button>
           </Input.Group>
         </form>
       </Descriptions.Item>
       {forms && (
-        <Descriptions.Item label="Declension">
+        <Descriptions.Item label={t('declension')}>
           <DeclensionTable forms={forms} />
         </Descriptions.Item>
       )}
