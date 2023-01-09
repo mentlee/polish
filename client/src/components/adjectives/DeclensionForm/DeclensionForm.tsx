@@ -18,21 +18,25 @@ export const DeclensionForm: React.FC = () => {
       column={{ xxl: 1, xl: 1, lg: 1, md: 1, sm: 1, xs: 1 }}
     >
       <Descriptions.Item label="Base info">
-        <Input.Group compact>
-          <Input
-            style={{ width: 'calc(100% - 6rem)' }}
-            width="calc(100% - 4rem)"
-            placeholder="Lemma"
-            value={lemma}
-            onChange={({ target }) => setLemma(target.value)}
-          />
-          <Button
-            disabled={!config}
-            onClick={() => setForms(getForms(config!))}
-          >
-            Generate
-          </Button>
-        </Input.Group>
+        <form
+          onSubmit={(event) => {
+            event.preventDefault()
+            setForms(getForms(config!))
+          }}
+        >
+          <Input.Group compact>
+            <Input
+              style={{ width: 'calc(100% - 6rem)' }}
+              width="calc(100% - 4rem)"
+              placeholder="Lemma"
+              value={lemma}
+              onChange={({ target }) => setLemma(target.value)}
+            />
+            <Button disabled={!config} htmlType="submit">
+              Generate
+            </Button>
+          </Input.Group>
+        </form>
       </Descriptions.Item>
       {forms && (
         <Descriptions.Item label="Declension">
