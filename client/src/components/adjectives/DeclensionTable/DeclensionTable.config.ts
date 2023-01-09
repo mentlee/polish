@@ -1,66 +1,66 @@
 export interface Row {
-  case: string
-  sgMasculineAnimate: number
-  sgMasculineInanimate: number
-  sgNeutral: number
-  sgFeminine: number
-  plMasculinePersonal: number
-  plNonMasculine: number
+  grCase: string
+  m2: number
+  m3: number
+  n: number
+  f: number
+  m1: number
+  o: number
 }
 
 export const tableData: Row[] = [
   {
-    case: 'Nom',
-    sgMasculineAnimate: 1,
-    sgMasculineInanimate: 1,
-    sgNeutral: 5,
-    sgFeminine: 6,
-    plMasculinePersonal: 9,
-    plNonMasculine: 5,
+    grCase: 'nom',
+    m2: 1,
+    m3: 1,
+    n: 5,
+    f: 6,
+    m1: 9,
+    o: 5,
   },
   {
-    case: 'Gen',
-    sgMasculineAnimate: 2,
-    sgMasculineInanimate: 2,
-    sgNeutral: 2,
-    sgFeminine: 7,
-    plMasculinePersonal: 10,
-    plNonMasculine: 10,
+    grCase: 'gen',
+    m2: 2,
+    m3: 2,
+    n: 2,
+    f: 7,
+    m1: 10,
+    o: 10,
   },
   {
-    case: 'Dat',
-    sgMasculineAnimate: 3,
-    sgMasculineInanimate: 3,
-    sgNeutral: 3,
-    sgFeminine: 7,
-    plMasculinePersonal: 4,
-    plNonMasculine: 4,
+    grCase: 'dat',
+    m2: 3,
+    m3: 3,
+    n: 3,
+    f: 7,
+    m1: 4,
+    o: 4,
   },
   {
-    case: 'Acc',
-    sgMasculineAnimate: 2,
-    sgMasculineInanimate: 1,
-    sgNeutral: 5,
-    sgFeminine: 8,
-    plMasculinePersonal: 10,
-    plNonMasculine: 5,
+    grCase: 'acc',
+    m2: 2,
+    m3: 1,
+    n: 5,
+    f: 8,
+    m1: 10,
+    o: 5,
   },
   {
-    case: 'Ins',
-    sgMasculineAnimate: 4,
-    sgMasculineInanimate: 4,
-    sgNeutral: 4,
-    sgFeminine: 8,
-    plMasculinePersonal: 11,
-    plNonMasculine: 11,
+    grCase: 'ins',
+    m2: 4,
+    m3: 4,
+    n: 4,
+    f: 8,
+    m1: 11,
+    o: 11,
   },
   {
-    case: 'Loc',
-    sgMasculineAnimate: 4,
-    sgMasculineInanimate: 4,
-    sgNeutral: 4,
-    sgFeminine: 7,
-    plMasculinePersonal: 10,
-    plNonMasculine: 10,
+    grCase: 'loc',
+    m2: 4,
+    m3: 4,
+    n: 4,
+    f: 7,
+    m1: 10,
+    o: 10,
   },
 ]

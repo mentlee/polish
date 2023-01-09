@@ -1,6 +1,7 @@
 import { Segmented, Table } from 'antd'
 import { type SegmentedValue } from 'antd/es/segmented'
 import { useState } from 'react'
+import { useTranslation } from 'react-i18next'
 import { type WordForms } from '../../../utils/forms'
 import { type Row, tableData } from './DeclensionTable.config'
 
@@ -9,54 +10,62 @@ interface DeclensionTableProps {
 }
 
 export const DeclensionTable: React.FC<DeclensionTableProps> = ({ forms }) => {
-  const [number, setNumber] = useState<SegmentedValue>('Single')
+  const { t } = useTranslation()
+  const [number, setNumber] = useState<SegmentedValue>('sg')
 
   return (
     <>
       <Segmented
         className="mb-2"
-        options={['Single', 'Plural']}
+        options={[
+          { label: t('number.sg'), value: 'sg' },
+          { label: t('number.pl'), value: 'pl' },
+        ]}
         value={number}
         onChange={setNumber}
       />
       <Table
         tableLayout="fixed"
         size="small"
-        rowKey="case"
+        rowKey="grCase"
         dataSource={tableData}
         pagination={false}
-        scroll={{ x: number === 'Single' ? 850 : 450 }}
+        scroll={{ x: number === 'sg' ? 850 : 450 }}
         bordered
       >
-        <Table.Column width={50} render={(_, row: Row) => row.case} fixed />
-        {number === 'Single' ? (
+        <Table.Column
+          width={50}
+          render={(_, { grCase }: Row) => t('cases.' + grCase + '.short')}
+          fixed
+        />
+        {number === 'sg' ? (
           <>
             <Table.Column
-              title="Masculine animate"
-              render={(_, row: Row) => forms[row.sgMasculineAnimate]}
+              title={t('genders.m2')}
+              render={(_, row: Row) => forms[row.m2]}
             />
             <Table.Column
-              title="Masculine inanimate"
-              render={(_, row: Row) => forms[row.sgMasculineInanimate]}
+              title={t('genders.m3')}
+              render={(_, row: Row) => forms[row.m3]}
             />
             <Table.Column
-              title="Neutral"
-              render={(_, row: Row) => forms[row.sgNeutral]}
+              title={t('genders.n')}
+              render={(_, row: Row) => forms[row.n]}
             />
             <Table.Column
-              title="Feminine"
-              render={(_, row: Row) => forms[row.sgFeminine]}
+              title={t('genders.f')}
+              render={(_, row: Row) => forms[row.f]}
             />
           </>
         ) : (
           <>
             <Table.Column
-              title="Masculine personal"
-              render={(_, row: Row) => forms[row.plMasculinePersonal]}
+              title={t('genders.m1')}
+              render={(_, row: Row) => forms[row.m1]}
             />
             <Table.Column
-              title="Other"
-              render={(_, row: Row) => forms[row.plNonMasculine]}
+              title={t('genders.o')}
+              render={(_, row: Row) => forms[row.o]}
             />
           </>
         )}
