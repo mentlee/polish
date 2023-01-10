@@ -1,4 +1,6 @@
 {
+  "inflection": "Inflection",
+  "adjectives": "Adjectives",
   "declension": "Declension",
   "basicInfo": "Basic info",
   "generate": "Generate",

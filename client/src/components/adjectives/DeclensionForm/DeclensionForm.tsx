@@ -13,7 +13,6 @@ export const DeclensionForm: React.FC = () => {
 
   return (
     <Descriptions
-      className="p-4"
       bordered
       layout="vertical"
       size="small"
