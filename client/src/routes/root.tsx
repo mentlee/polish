@@ -2,7 +2,7 @@ import { Menu, Select, type MenuProps } from 'antd'
 import { useEffect, useMemo, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Link, Outlet, useLocation, useNavigate } from 'react-router-dom'
-import { ReactComponent as Logo } from '../assets/logo-full.svg'
+import { ReactComponent as Logo } from '../assets/logo.svg'
 
 export const RootRoute: React.FC = () => {
   const navigate = useNavigate()
