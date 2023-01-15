@@ -8,8 +8,8 @@ module.exports = {
     extend: {},
   },
   corePlugins: {
-    preflight: false,
+    preflight: true,
   },
-  important: '#root',
+  important: '.tw',
   plugins: [],
 }
