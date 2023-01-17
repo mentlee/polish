@@ -1,5 +1,5 @@
 import cn from 'classnames'
-import { useMemo } from 'react'
+import { Tooltip } from 'antd'
 import { useTranslation } from 'react-i18next'
 import { headers, rows } from './WordFormsTable.config'
 
@@ -10,9 +10,13 @@ export interface FormConfig {
 
 export interface WordFormsTableProps {
   config: Record<number, FormConfig | undefined>
+  corner?: JSX.Element
 }
 
-export const WordFormsTable: React.FC<WordFormsTableProps> = ({ config }) => {
+export const WordFormsTable: React.FC<WordFormsTableProps> = ({
+  config,
+  corner,
+}) => {
   const { t } = useTranslation()
 
   return (
@@ -20,19 +24,25 @@ export const WordFormsTable: React.FC<WordFormsTableProps> = ({ config }) => {
       <table className="border-separate min-w-[330px] w-full table-fixed">
         <thead>
           <tr>
-            <th className="px-1 py-1 w-10"></th>
+            <th className="px-1 py-1 w-10">{corner}</th>
             {headers.map(({ label, width }) => (
               <th
                 key={label}
                 className={cn(
-                  'px-1 py-1 bg-slate-200 rounded-md h-10 text-xs text-slate-600',
+                  'px-1 py-1 bg-slate-200 rounded-md h-8 text-xs text-slate-600',
                   {
                     'w-12 sm:w-auto': width === 'l',
                     'w-20 sm:w-auto': width === 'xl',
                   },
                 )}
               >
-                {t(`genders.${label}.short`)}
+                <Tooltip
+                  className="flex justify-center items-center h-full w-full"
+                  title={t(`genders.${label}.long`)}
+                  placement="topRight"
+                >
+                  {t(`genders.${label}.short`)}
+                </Tooltip>
               </th>
             ))}
           </tr>
@@ -40,8 +50,14 @@ export const WordFormsTable: React.FC<WordFormsTableProps> = ({ config }) => {
         <tbody className="text-center">
           {rows.map(({ grCase, cols }) => (
             <tr key={grCase}>
-              <th className="px-1 py-1 bg-slate-200 rounded-md h-10 text-xs text-slate-600">
-                {t(`cases.${grCase}.short`)}
+              <th className="px-1 py-1 bg-slate-200 rounded-md h-8 text-xs text-slate-600">
+                <Tooltip
+                  className="flex justify-center items-center h-full w-full"
+                  title={t(`cases.${grCase}.long`)}
+                  placement="right"
+                >
+                  {t(`cases.${grCase}.short`)}
+                </Tooltip>
               </th>
               {cols.map(({ form, colSpan, rowSpan }, index) => (
                 <td
