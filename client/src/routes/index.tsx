@@ -1,5 +1,9 @@
 import { createBrowserRouter } from 'react-router-dom'
-import { AdjectivesRoute } from './adjectives'
+import {
+  AdjectiveFormRoute,
+  AdjectivesGeneratorRoute,
+  AdjectiveRulesRoute,
+} from './adjectives'
 import { RootRoute } from './root'
 
 export const router = createBrowserRouter([
@@ -8,8 +12,16 @@ export const router = createBrowserRouter([
     element: <RootRoute />,
     children: [
       {
-        path: 'adjectives',
-        element: <AdjectivesRoute />,
+        path: 'adjectives/generator',
+        element: <AdjectivesGeneratorRoute />,
+      },
+      {
+        path: 'adjectives/rules',
+        element: <AdjectiveRulesRoute />,
+      },
+      {
+        path: 'adjectives/rules/:form',
+        element: <AdjectiveFormRoute />,
       },
     ],
   },

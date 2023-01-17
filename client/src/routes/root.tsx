@@ -17,13 +17,18 @@ export const RootRoute: React.FC = () => {
   const items = useMemo<MenuProps['items']>(
     () => [
       {
-        key: 'inflection',
-        label: t('inflection'),
+        key: 'adjectives',
+        label: t('adjectives'),
         children: [
           {
-            key: '/adjectives',
-            label: t('adjectives'),
-            onClick: () => navigate('/adjectives'),
+            key: '/adjectives/rules',
+            label: t('rules'),
+            onClick: () => navigate('/adjectives/rules'),
+          },
+          {
+            key: '/adjectives/generator',
+            label: t('generator'),
+            onClick: () => navigate('/adjectives/generator'),
           },
         ],
       },
@@ -48,8 +53,8 @@ export const RootRoute: React.FC = () => {
             value={language}
             onChange={setLanguage}
             options={[
-              { label: 'English', value: 'en' },
-              { label: 'Polski', value: 'pl' },
+              { label: 'en', value: 'en' },
+              { label: 'pl', value: 'pl' },
             ]}
           />
         </header>

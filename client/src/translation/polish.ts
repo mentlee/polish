@@ -1,4 +1,6 @@
 export const translationPl = {
+  generator: 'Generator',
+  rules: 'Reguły',
   inflection: 'Odmiana',
   adjectives: 'Przymiotniki',
   declension: 'Odmiana',

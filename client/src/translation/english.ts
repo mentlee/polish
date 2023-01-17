@@ -1,6 +1,8 @@
 import { type Translation } from './polish'
 
 export const translationEn: Translation = {
+  generator: 'Generator',
+  rules: 'Rules',
   inflection: 'Inflection',
   adjectives: 'Adjectives',
   declension: 'Declension',
