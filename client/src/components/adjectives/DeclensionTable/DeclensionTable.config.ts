@@ -1,11 +1,7 @@
-export interface Row {
-  grCase: string
-  m2: number
-  m3: number
-  n: number
-  f: number
-  m1: number
-  o: number
+export type Gender = 'm1' | 'm2' | 'm3' | 'n' | 'f' | 'nm1'
+export type GrCase = 'nom' | 'gen' | 'dat' | 'acc' | 'ins' | 'loc'
+export interface Row extends Record<Gender, number> {
+  grCase: GrCase
 }
 
 export const tableData: Row[] = [
@@ -16,7 +12,7 @@ export const tableData: Row[] = [
     n: 5,
     f: 6,
     m1: 9,
-    o: 5,
+    nm1: 5,
   },
   {
     grCase: 'gen',
@@ -25,7 +21,7 @@ export const tableData: Row[] = [
     n: 2,
     f: 7,
     m1: 10,
-    o: 10,
+    nm1: 10,
   },
   {
     grCase: 'dat',
@@ -34,7 +30,7 @@ export const tableData: Row[] = [
     n: 3,
     f: 7,
     m1: 4,
-    o: 4,
+    nm1: 4,
   },
   {
     grCase: 'acc',
@@ -43,7 +39,7 @@ export const tableData: Row[] = [
     n: 5,
     f: 8,
     m1: 10,
-    o: 5,
+    nm1: 5,
   },
   {
     grCase: 'ins',
@@ -52,7 +48,7 @@ export const tableData: Row[] = [
     n: 4,
     f: 8,
     m1: 11,
-    o: 11,
+    nm1: 11,
   },
   {
     grCase: 'loc',
@@ -61,6 +57,6 @@ export const tableData: Row[] = [
     n: 4,
     f: 7,
     m1: 10,
-    o: 10,
+    nm1: 10,
   },
 ]
