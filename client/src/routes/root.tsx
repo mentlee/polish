@@ -8,7 +8,7 @@ export const RootRoute: React.FC = () => {
   const navigate = useNavigate()
   const { pathname } = useLocation()
   const { t, i18n } = useTranslation()
-  const [language, setLanguage] = useState('en')
+  const [language, setLanguage] = useState(i18n.language)
 
   useEffect(() => {
     i18n.changeLanguage(language)
